@@ -12,7 +12,8 @@
     "element-ui": "^2.15.5",
     "less-loader": "^7.3.0",
     "vue": "^2.6.11",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "xlsx": "^0.17.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
