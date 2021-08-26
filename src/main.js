@@ -15,9 +15,9 @@ const setBtnStyle = btn => {
 }
 const setBtnEvent = btn => {
     const transDom = document.querySelector('#translation')
-    const transPlace = document.querySelector('.hwt-highlights.hwt-content')
     const isEmpty = () => !transDom.value
     const insertTransVal = () => {
+        const transPlace = document.querySelector('.hwt-highlights.hwt-content')
         const cn= document.querySelector('.singular').innerText
         const tw = T.cn2tw(cn)
 
