@@ -3,26 +3,35 @@ const T = require('./translate')
 const setBtnStyle = btn => {
     btn.innerHTML = 'T'
     btn.className = 'btn btn-icon'
-    btn.style.display = 'inline-flex' 
-    btn.style.width = '12px' 
-    btn.style.height = '12px' 
-    btn.style.marginLeft = '12px' 
-    btn.style.background = 'blueviolet' 
-    btn.style.color = 'white' 
-    btn.style.alignItems = 'center' 
-    btn.style.justifyContent = 'center' 
-    btn.style.fontWeight = 'bold' 
+    btn.style.display = 'inline-flex'
+    btn.style.width = '12px'
+    btn.style.height = '12px'
+    btn.style.marginLeft = '12px'
+    btn.style.background = 'blueviolet'
+    btn.style.color = 'white'
+    btn.style.alignItems = 'center'
+    btn.style.justifyContent = 'center'
+    btn.style.fontWeight = 'bold'
 }
 const setBtnEvent = btn => {
     const transDom = document.querySelector('#translation')
     const isEmpty = () => !transDom.value
+    const mockInputEvt = (el) => {
+      const evt = document.createEvent('HTMLEvents');
+
+      evt.initEvent('input', true, true);
+      el.dispatchEvent(evt);
+    }
     const insertTransVal = () => {
         const transPlace = document.querySelector('.hwt-highlights.hwt-content')
-        const cn= document.querySelector('.singular').innerText
-        const tw = T.cn2tw(cn)
+        const cnDom= document.querySelector('.singular')
+        const tw = T.cn2tw(cnDom.innerText)
 
         transDom.value = tw
         transPlace.innerText = tw
+        transPlace.focus()
+        transPlace.focus()
+        mockInputEvt(transPlace)
     }
 
     btn.onclick = () => {
