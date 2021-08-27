@@ -32,6 +32,7 @@ const setBtnEvent = btn => {
         transPlace.focus()
         transPlace.focus()
         mockInputEvt(transPlace)
+        mockInputEvt(transDom)
     }
 
     btn.onclick = () => {
