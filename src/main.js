@@ -14,8 +14,8 @@ const setBtnStyle = btn => {
     btn.style.fontWeight = 'bold'
 }
 const setBtnEvent = btn => {
-    const transDom = document.querySelector('#translation')
-    const isEmpty = () => !transDom.value
+    const transTextDom = document.querySelector('#translation')
+    const isEmpty = () => !transTextDom.value
     const mockInputEvt = (el) => {
       const evt = document.createEvent('HTMLEvents');
 
@@ -23,16 +23,19 @@ const setBtnEvent = btn => {
       el.dispatchEvent(evt);
     }
     const insertTransVal = () => {
-        const transPlace = document.querySelector('.hwt-highlights.hwt-content')
+        const transDivDom = document.querySelector('.hwt-highlights.hwt-content')
         const cnDom= document.querySelector('.singular')
         const tw = T.cn2tw(cnDom.innerText)
 
-        transDom.value = tw
-        transPlace.innerText = tw
-        transPlace.focus()
-        transPlace.focus()
-        mockInputEvt(transPlace)
-        mockInputEvt(transDom)
+        if (transDivDom) {
+          transDivDom.innerText = tw
+          transDivDom.focus()
+          mockInputEvt(transDivDom)
+        }
+
+        transTextDom.value = tw
+        transTextDom.focus()
+        mockInputEvt(transTextDom)
     }
 
     btn.onclick = () => {
